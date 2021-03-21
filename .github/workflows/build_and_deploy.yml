@@ -5,8 +5,8 @@ name: Build and deploy JAR app to Azure Web App - stgo-dsi-dp-todo-web
 
 on:
   push:
-  branches:
-    - main
+    branches:
+      - main
 workflow_dispatch:
 
 jobs:
