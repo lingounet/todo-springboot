@@ -69,36 +69,6 @@
           </excludes> 
         </configuration> 
       </plugin>  
-      <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.13.0</version>
-        <configuration>
-          <schemaVersion>v2</schemaVersion>
-          <subscriptionId>3e7a4ba4-20cd-4b58-b1d2-bfe76064a924</subscriptionId>
-          <resourceGroup>stgo-dsi-dp-todo-rg</resourceGroup>
-          <appName>stgo-dsi-dp-todo-web</appName>
-          <pricingTier>B1</pricingTier>
-          <region>westeurope</region>
-          <appServicePlanName>stgo-dsi-dp-todo-asp</appServicePlanName>
-          <appServicePlanResourceGroup>stgo-dsi-dp-todo-rg</appServicePlanResourceGroup>
-          <runtime>
-            <os>Linux</os>
-            <javaVersion>Java 11</javaVersion>
-            <webContainer>Java SE</webContainer>
-          </runtime>
-          <deployment>
-            <resources>
-              <resource>
-                <directory>${project.basedir}/target</directory>
-                <includes>
-                  <include>*.jar</include>
-                </includes>
-              </resource>
-            </resources>
-          </deployment>
-        </configuration>
-      </plugin>
     </plugins>
   </build> 
 </project>
