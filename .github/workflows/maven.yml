@@ -22,9 +22,11 @@ jobs:
     needs: build
     if: github.ref == 'refs/heads/main'
     steps:
+      - name: testage
+        run: ls -la
       - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: deploy to Azure using Maven
-        run: mvn com.microsoft.azure:azure-webapp-maven-plugin:1.13.0:deploy
+        run: mvn azure-webapp:deploy
