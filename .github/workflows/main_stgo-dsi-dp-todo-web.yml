@@ -23,11 +23,17 @@ jobs:
         java-version: '11'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Sign in to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
       if: github.ref == 'refs/heads/main'
       with:
         app-name: 'stgo-dsi-dp-todo-web'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_1ae23eba0d194e8ebe56b90b163c4df7 }}
         package: '${{ github.workspace }}/target/*.jar'
+    - name: Sign out of Azure
+      run: |
+        az logout
